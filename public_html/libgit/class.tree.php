@@ -41,10 +41,13 @@ class GitTree extends GitObject
 		
 		foreach($lines as $line)
 		{
-			list($metadata, $binhash) = explode("\0", $line, 2);
-			list($mode, $filename) = explode(" ", $metadata, 2);
-			$hash = sha1_from_bin($binhash);
-			$this->elements[] = new GitTreeElement($mode, $filename, $hash);
+			if(!empty($line))
+			{
+				list($metadata, $binhash) = explode("\0", $line, 2);
+				list($mode, $filename) = explode(" ", $metadata, 2);
+				$hash = sha1_from_bin($binhash);
+				$this->elements[] = new GitTreeElement($mode, $filename, $hash);
+			}
 		}
 	}
 }
