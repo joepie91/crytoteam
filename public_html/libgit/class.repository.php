@@ -35,19 +35,19 @@ class GitRepository
 		switch($type)
 		{
 			case "commit":
-				return new GitCommit($headerdata, $data);
+				return new GitCommit($this, $headerdata, $data);
 				break;
 			case "blob":
-				return new GitBlob($headerdata, $data);
+				return new GitBlob($this, $headerdata, $data);
 				break;
 			case "tree":
-				return new GitTree($headerdata, $data);
+				return new GitTree($this, $headerdata, $data);
 				break;
 			case "tag":
-				return new GitTag($headerdata, $data);
+				return new GitTag($this, $headerdata, $data);
 				break;
 			default:
-				return new GitObject($headerdata, $data);
+				return new GitObject($this, $headerdata, $data);
 				break;
 		}
 	}

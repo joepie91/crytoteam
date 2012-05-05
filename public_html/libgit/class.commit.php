@@ -7,9 +7,9 @@ class GitCommit extends GitObject
 	public $message = "";
 	public $parents = array();
 	
-	function __construct($headerdata, $data)
+	function __construct($repo, $headerdata, $data)
 	{
-		parent::__construct($headerdata, $data);
+		parent::__construct($repo, $headerdata, $data);
 		
 		$lines = explode("\n", $data);
 		$message_parts = array();
