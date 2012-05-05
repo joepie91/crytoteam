@@ -96,6 +96,21 @@ class GitRepository
 		}
 	}
 	
+	function GetBranches()
+	{
+		$branches = array();
+		
+		foreach(scandir("{$this->path}/refs/heads/") as $branch)
+		{
+			if($branch != "." && $branch != "..")
+			{
+				$branches[$branch] = $this->GetBranch($branch);
+			}
+		}
+		
+		return $branches;
+	}
+	
 	function GetTag($name)
 	{
 		$filename = "{$this->path}/refs/tags/{$name}";
@@ -109,6 +124,21 @@ class GitRepository
 		{
 			throw new GitTagNotFoundException("The '{$name}' tag does not exist.");
 		}
+	}
+	
+	function GetTags()
+	{
+		$tags = array();
+		
+		foreach(scandir("{$this->path}/refs/tags/") as $tag)
+		{
+			if($tag != "." && $tag != "..")
+			{
+				$tags[$tag] = $this->GetTag($tag);
+			}
+		}
+		
+		return $tags;
 	}
 	
 	function GetObjectForPath($origin, $path)
