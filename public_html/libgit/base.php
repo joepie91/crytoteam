@@ -23,6 +23,8 @@ function sha1_from_bin($bin)
 	return bin2hex($bin);
 }
 
+class GitBranchNotFoundException extends Exception {}
+
 require(dirname(__FILE__) . "/class.repository.php");
 require(dirname(__FILE__) . "/class.branch.php");
 require(dirname(__FILE__) . "/class.object.php");

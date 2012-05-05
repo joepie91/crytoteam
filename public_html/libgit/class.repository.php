@@ -54,6 +54,16 @@ class GitRepository
 	
 	function GetBranch($name)
 	{
-		return new GitBranch($this, $sha);
+		$filename = "{$this->path}/refs/heads/{$name}";
+		
+		if(file_exists($filename))
+		{
+			$sha = trim(file_get_contents($filename));
+			return new GitBranch($this, $sha);
+		}
+		else
+		{
+			throw new GitBranchNotFoundException("The {$name} branch does not exist.");
+		}
 	}
 }
