@@ -21,8 +21,6 @@ class GitCommit extends GitObject
 			
 			if(!empty($line))
 			{
-				$line = trim($line);
-				
 				if($parsing_message === false)
 				{
 					list($key, $value) = explode(" ", $line, 2);
