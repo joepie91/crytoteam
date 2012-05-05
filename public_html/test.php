@@ -2,7 +2,8 @@
 require("libgit/base.php");
 
 $s = new GitRepository("/home/occupy/testrepo.git");
-pretty_dump($s->GetObject("54e03e490b1bee1c154c3545bf258cab0629ee02"));
+/*pretty_dump($s->GetObject("54e03e490b1bee1c154c3545bf258cab0629ee02"));
 pretty_dump($s->GetObject("98d99489382a3541e6783bb2083554785f3eb72a"));
 pretty_dump($s->GetObject("9d8e0ba4a30f6a5d775a879c42c7de5aed4530c6"));
-pretty_dump($s->GetObject("710bfee4440517255475bf7c5454c0bdbb3b3e56"));
+pretty_dump($s->GetObject("710bfee4440517255475bf7c5454c0bdbb3b3e56"));*/
+pretty_dump($s->GetObject("dba13ed2ddf783ee8118c6a581dbf75305f816a3"));
