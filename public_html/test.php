@@ -2,7 +2,7 @@
 require("libgit/base.php");
 
 $repo = new GitRepository("/home/occupy/testrepo.git");
-pretty_dump($repo->GetBranch("master")->GetLastCommit());
+pretty_dump($repo->GetTag("1.0")->GetCommit());
 
 /*pretty_dump($s->GetObject("54e03e490b1bee1c154c3545bf258cab0629ee02"));
 pretty_dump($s->GetObject("98d99489382a3541e6783bb2083554785f3eb72a"));

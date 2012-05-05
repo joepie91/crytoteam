@@ -63,7 +63,22 @@ class GitRepository
 		}
 		else
 		{
-			throw new GitBranchNotFoundException("The {$name} branch does not exist.");
+			throw new GitBranchNotFoundException("The '{$name}' branch does not exist.");
+		}
+	}
+	
+	function GetTag($name)
+	{
+		$filename = "{$this->path}/refs/tags/{$name}";
+		
+		if(file_exists($filename))
+		{
+			$sha = trim(file_get_contents($filename));
+			return $this->GetObject($sha);
+		}
+		else
+		{
+			throw new GitTagNotFoundException("The '{$name}' tag does not exist.");
 		}
 	}
 }

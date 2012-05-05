@@ -54,4 +54,9 @@ class GitCommit extends GitObject
 		
 		$this->message = implode("\n", $message_parts);
 	}
+	
+	function GetTree()
+	{
+		return $this->repo->GetObject($this->tree);
+	}
 }

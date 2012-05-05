@@ -14,4 +14,9 @@ class GitBranch
 	{
 		return $this->repo->GetObject($this->sha);
 	}
+	
+	function GetTree()
+	{
+		return $this->GetCommit()->GetTree();
+	}
 }

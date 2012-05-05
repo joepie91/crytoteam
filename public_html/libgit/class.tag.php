@@ -54,4 +54,14 @@ class GitTag extends GitObject
 		
 		$this->message = implode("\n", $message_parts);
 	}
+	
+	function GetCommit()
+	{
+		return $this->repo->GetObject($this->target);
+	}
+	
+	function GetTree()
+	{
+		return $this->GetCommit()->GetTree();
+	}
 }
