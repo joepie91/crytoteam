@@ -81,4 +81,52 @@ class GitRepository
 			throw new GitTagNotFoundException("The '{$name}' tag does not exist.");
 		}
 	}
+	
+	function GetObjectForPath($origin, $path)
+	{
+		$path_parts = explode("/", $path);
+		$total_parts = count($path_parts);
+		$current_part = 0;
+		
+		if(!($origin instanceof GitTree))
+		{
+			$origin = $this->GetObject($origin);
+		}
+		
+		if($origin instanceof GitTree)
+		{
+			$current_tree = $origin;
+			
+			for($i = 0; $i < $total_parts; $i++)
+			{
+				foreach($current_tree->elements as $element)
+				{
+					if($element->filename == $path_parts[$current_part])
+					{
+						$current_tree = $this->GetObject($element->hash);
+						pretty_dump($current_tree);
+						
+						if($current_part != ($total_parts - 1) && !($current_tree instanceof GitTree))
+						{
+							throw new GitInvalidElementException("Encountered a non-GitTree object while walking the specified path.");
+						}
+						
+						$current_part += 1;
+						
+						continue 2;
+					}
+					
+				}
+				pretty_dump($path_parts[$current_part]);
+				pretty_dump($current_tree);
+				throw new GitPathNotFoundException("The specified path was not found in the specified origin.");
+			}
+			
+			return $current_tree;
+		}
+		else
+		{
+			throw new GitInvalidOriginException("You can only use a GitTree hash as origin.");
+		}
+	}
 }

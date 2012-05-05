@@ -25,6 +25,9 @@ function sha1_from_bin($bin)
 
 class GitBranchNotFoundException extends Exception {}
 class GitTagNotFoundException extends Exception {}
+class GitInvalidOriginException extends Exception {}
+class GitInvalidElementException extends Exception {}
+class GitPathNotFoundException extends Exception {}
 
 require(dirname(__FILE__) . "/class.repository.php");
 require(dirname(__FILE__) . "/class.branch.php");
