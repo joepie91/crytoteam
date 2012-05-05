@@ -23,11 +23,20 @@ function sha1_from_bin($bin)
 	return bin2hex($bin);
 }
 
+function number_from_bin($bin)
+{
+	$c = unpack("N", $bin);
+        return $c[1];
+}
+
 class GitBranchNotFoundException extends Exception {}
 class GitTagNotFoundException extends Exception {}
 class GitInvalidOriginException extends Exception {}
 class GitInvalidElementException extends Exception {}
+class GitInvalidFormatException extends Exception {}
+class GitUnsupportedVersionException extends Exception {}
 class GitPathNotFoundException extends Exception {}
+class GitCorruptIndexException extends Exception {}
 
 require(dirname(__FILE__) . "/class.repository.php");
 require(dirname(__FILE__) . "/class.branch.php");
@@ -38,4 +47,6 @@ require(dirname(__FILE__) . "/class.tree.php");
 require(dirname(__FILE__) . "/class.tree.element.php");
 require(dirname(__FILE__) . "/class.commit.php");
 require(dirname(__FILE__) . "/class.actor.php");
+require(dirname(__FILE__) . "/class.pack.php");
+require(dirname(__FILE__) . "/class.pack.index.php");
 ?>
