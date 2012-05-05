@@ -18,8 +18,14 @@ function pretty_dump($input)
 	echo($output);
 }
 
+function sha1_from_bin($bin)
+{
+	return bin2hex($bin);
+}
+
 require(dirname(__FILE__) . "/class.repository.php");
 require(dirname(__FILE__) . "/class.object.php");
+require(dirname(__FILE__) . "/class.tree.php");
 require(dirname(__FILE__) . "/class.commit.php");
 require(dirname(__FILE__) . "/class.actor.php");
 ?>
