@@ -51,4 +51,9 @@ class GitRepository
 				break;
 		}
 	}
+	
+	function GetBranch($name)
+	{
+		return new GitBranch($this, $sha);
+	}
 }

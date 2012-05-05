@@ -24,6 +24,7 @@ function sha1_from_bin($bin)
 }
 
 require(dirname(__FILE__) . "/class.repository.php");
+require(dirname(__FILE__) . "/class.branch.php");
 require(dirname(__FILE__) . "/class.object.php");
 require(dirname(__FILE__) . "/class.blob.php");
 require(dirname(__FILE__) . "/class.tag.php");
