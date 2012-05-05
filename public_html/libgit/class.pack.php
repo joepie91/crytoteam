@@ -46,10 +46,12 @@ class GitPack
 				case OBJ_TAG:
 					// this is a compressed object
 					$data = fread($file, $size);
+					return $this->repo->CreateObject(gzuncompress($data), $type, $size);
 					break;
 				case OBJ_OFS_DELTA:
 				case OBJ_REF_DELTA:
 					// this is a delta
+					throw new Exception("This is not yet implemented.");
 					break;
 				default:
 					throw new GitUnknownTypeException("The object type is not supported.");

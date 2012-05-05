@@ -20,7 +20,36 @@ class GitRepository
 	
 	function GetObject($sha)
 	{
-		list($header, $data) = explode("\0", $this->GetObjectRaw($sha), 2);
+		return $this->CreateObject($this->GetObjectRaw($sha));
+	}
+	
+	function CreateObject($data, $type = null, $size = null)
+	{
+		if($type == null && $size == null)
+		{
+			list($header, $data) = explode("\0", $data, 2);
+		}
+		else
+		{
+			switch($type)
+			{
+				case OBJ_BLOB:
+					$typestring = "blob";
+					break;
+				case OBJ_TREE:
+					$typestring = "tree";
+					break;
+				case OBJ_TAG:
+					$typestring = "tag";
+					break;
+				case OBJ_COMMIT:
+					$typestring = "commit";
+					break;
+				default:
+					throw new GitUnknownTypeException("The specified type is not valid for this function.");
+			}
+			$header = "{$typestring} {$size}";
+		}
 		
 		if(strpos($header, " ") !== false)
 		{
