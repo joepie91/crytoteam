@@ -17,6 +17,6 @@ class GitBranch
 	
 	function GetTree()
 	{
-		return $this->GetCommit()->GetTree();
+		return $this->GetLastCommit()->GetTree();
 	}
 }
