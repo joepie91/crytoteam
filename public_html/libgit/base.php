@@ -29,6 +29,13 @@ function number_from_bin($bin)
         return $c[1];
 }
 
+define("OBJ_COMMIT", 1);
+define("OBJ_TREE", 2);
+define("OBJ_BLOB", 3);
+define("OBJ_TAG", 4);
+define("OBJ_OFS_DELTA", 6);
+define("OBJ_REF_DELTA", 7);
+
 class GitBranchNotFoundException extends Exception {}
 class GitTagNotFoundException extends Exception {}
 class GitInvalidOriginException extends Exception {}
@@ -36,7 +43,9 @@ class GitInvalidElementException extends Exception {}
 class GitInvalidFormatException extends Exception {}
 class GitUnsupportedVersionException extends Exception {}
 class GitPathNotFoundException extends Exception {}
+class GitObjectNotFoundException extends Exception {}
 class GitCorruptIndexException extends Exception {}
+class GitUnknownTypeException extends Exception {}
 
 require(dirname(__FILE__) . "/class.repository.php");
 require(dirname(__FILE__) . "/class.branch.php");
