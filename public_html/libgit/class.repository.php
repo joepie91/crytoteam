@@ -10,20 +10,25 @@ class GitRepository
 	
 	function GetObjectRaw($sha)
 	{
-		return gzuncompress(
-		file_get_contents(
-		sprintf("{$this->path}/objects/%s/%s", 
-			substr($sha, 0, 2), 
-			substr($sha, 2)
-		)));
+		$filename = sprintf("{$this->path}/objects/%s/%s", substr($sha, 0, 2), substr($sha, 2));
+		return gzuncompress(file_get_contents($filename));
 	}
 	
 	function GetObject($sha)
 	{
-		return $this->CreateObject($this->GetObjectRaw($sha));
+		$filename = sprintf("{$this->path}/objects/%s/%s", substr($sha, 0, 2), substr($sha, 2));
+		
+		if(file_exists($filename))
+		{
+			return $this->CreateObject($this->GetObjectRaw($sha), null, null, $sha);
+		}
+		else
+		{
+			return $this->FindPackedObject($sha);
+		}
 	}
 	
-	function CreateObject($data, $type = null, $size = null)
+	function CreateObject($data, $type = null, $size = null, $sha)
 	{
 		if($type == null && $size == null)
 		{
@@ -64,19 +69,19 @@ class GitRepository
 		switch($type)
 		{
 			case "commit":
-				return new GitCommit($this, $headerdata, $data);
+				return new GitCommit($this, $headerdata, $data, $sha);
 				break;
 			case "blob":
-				return new GitBlob($this, $headerdata, $data);
+				return new GitBlob($this, $headerdata, $data, $sha);
 				break;
 			case "tree":
-				return new GitTree($this, $headerdata, $data);
+				return new GitTree($this, $headerdata, $data, $sha);
 				break;
 			case "tag":
-				return new GitTag($this, $headerdata, $data);
+				return new GitTag($this, $headerdata, $data, $sha);
 				break;
 			default:
-				return new GitObject($this, $headerdata, $data);
+				return new GitObject($this, $headerdata, $data, $sha);
 				break;
 		}
 	}
@@ -141,6 +146,22 @@ class GitRepository
 		return $tags;
 	}
 	
+	function GetPacks()
+	{
+		$packs = array();
+		
+		foreach(scandir("{$this->path}/objects/pack/") as $pack)
+		{
+			if($pack != "." && $pack != ".." && substr($pack, strlen($pack) - 5) != ".pack")
+			{
+				$pack_name = substr($pack, 0, strlen($pack) - 4);
+				$packs[] = $pack_name;
+			}
+		}
+		
+		return $packs;
+	}
+	
 	function GetObjectForPath($origin, $path)
 	{
 		$path_parts = explode("/", $path);
@@ -186,6 +207,23 @@ class GitRepository
 		else
 		{
 			throw new GitInvalidOriginException("You can only use a GitTree hash as origin.");
+		}
+	}
+	
+	function FindPackedObject($sha)
+	{
+		foreach($this->GetPacks() as $item)
+		{
+			$pack = new GitPack($this, $item);
+			
+			try
+			{
+				return $pack->UnpackObject($sha);
+			}
+			catch (GitObjectNotFoundException $e)
+			{
+				// Silently ignore.
+			}
 		}
 	}
 }

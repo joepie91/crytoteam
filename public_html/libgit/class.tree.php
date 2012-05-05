@@ -3,9 +3,9 @@ class GitTree extends GitObject
 {
 	public $elements = array();
 	
-	function __construct($repo, $headerdata, $data)
+	function __construct($repo, $headerdata, $data, $sha)
 	{
-		parent::__construct($repo, $headerdata, $data);
+		parent::__construct($repo, $headerdata, $data, $sha);
 		
 		$parsing_sha = false;
 		$sha_bytecount = 0;

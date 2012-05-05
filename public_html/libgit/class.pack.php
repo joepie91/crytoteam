@@ -46,7 +46,14 @@ class GitPack
 				case OBJ_TAG:
 					// this is a compressed object
 					$data = fread($file, $size);
-					return $this->repo->CreateObject(gzuncompress($data), $type, $size);
+					$uncompressed = gzuncompress($data);
+					
+					if($uncompressed === false)
+					{
+						$uncompressed = $data;
+					}
+					
+					return $this->repo->CreateObject($uncompressed, $type, $size);
 					break;
 				case OBJ_OFS_DELTA:
 				case OBJ_REF_DELTA:
