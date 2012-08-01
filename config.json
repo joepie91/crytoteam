@@ -7,6 +7,8 @@
 		"database": 	"team"
 	},
 	"locale": {
+		"path": 		"locales",
+		"extension":		"lng",
 		"default_locale": 	"english",
 		"default_timezone": 	"Europe/Amsterdam"
 	},
