@@ -1,0 +1,30 @@
+{
+	"database": {
+		"driver": 	"mysql",
+		"hostname": 	"localhost",
+		"username": 	"root",
+		"password": 	"",
+		"database": 	"team"
+	},
+	"locale": {
+		"default_locale": 	"english",
+		"default_timezone": 	"Europe/Amsterdam"
+	},
+	"memcache": {
+		"enabled": 	true,
+		"compressed": 	true,
+		"hostname": 	"localhost",
+		"port": 	11211
+	},
+	"class_map": {
+		"user": 	 "User",
+		"interestgroup": "InterestGroup",
+		"project": 	 "Project",
+		"repository": 	 "Repository",
+		"ticket": 	 "Ticket"
+	},
+	"components": [
+		"router",
+		"errorhandler"
+	]
+}
