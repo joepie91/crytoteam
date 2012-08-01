@@ -1,0 +1,24 @@
+_locale;								ro_RO.UTF-8,ro_RO
+_datetime_short;							%d/%m/%Y %H:%M:%S
+_datetime_long;								%A %B %d, %Y %H:%M:%S
+_date_short;								%d/%m/%Y
+_date_long;								%A %B %d, %Y
+_time;									%H:%M:%S
+		
+event-now;								acum
+event-future;								in viitor
+event-past;								in trecut
+event-1second-ago;							cu o secunda in urma
+event-seconds-ago;							cu %1$d secunde in urma
+event-1minutes-ago;							cu un minut in urma
+event-minutes-ago;							cu %1$d minute in urma
+event-1hour-ago;							cu o ora in urma
+event-hours-ago;							cu %1$d ore in urma
+event-1day-ago;								cu o zi in urma
+event-days-ago;								cu %1$d zile in urma
+event-1week-ago;							saptamana trecuta
+event-weeks-ago;							cu %1$d saptamani in urma
+event-1month-ago;							luna trecuta
+event-months-ago;							cu %1$d luni in urma
+event-1year-ago;							anul trecut
+event-years-ago;							cu %1$d ani in urma
