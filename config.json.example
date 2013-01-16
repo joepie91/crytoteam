@@ -20,11 +20,15 @@
 		"port": 	11211
 	},
 	"class_map": {
-		"user": 	 "User",
-		"interestgroup": "InterestGroup",
-		"project": 	 "Project",
-		"repository": 	 "Repository",
-		"ticket": 	 "Ticket"
+		"user": 	 	"User",
+		"interestgroup": 	"InterestGroup",
+		"project": 	 	"Project",
+		"repository": 	 	"Repository",
+		"ticket": 	 	"Ticket",
+		"tickettag": 	 	"TicketTag",
+		"ticketmessage": 	"TicketMessage",
+		"ticketattachment":	"TicketAttachment",
+		"logentry":		"LogEntry"
 	},
 	"components": [
 		"router",
