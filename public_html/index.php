@@ -1,14 +1,14 @@
 <?php
-require("include/base.php");
+/*
+ * Cryto Team is more free software. It is licensed under the WTFPL, which
+ * allows you to do pretty much anything with it, without having to
+ * ask permission. Commercial use is allowed, and no attribution is
+ * required. We do politely request that you share your modifications
+ * to benefit other developers, but you are under no enforced
+ * obligation to do so :)
+ * 
+ * Please read the accompanying LICENSE document for the full WTFPL
+ * licensing text.
+ */
 
-echo(Templater::AdvancedParse("layout", $locale->strings, array(
-	"project-name"		=> "Demo project",
-	"long-description"	=> "A large, multi-paragraph description of the project would go here.",
-	"no-downloads"		=> false,
-	"stable-version"	=> "1.5.3",
-	"experimental-version"	=> "1.6.1",
-	"line-count"		=> "62,671",
-	"ticket-count"		=> 12,
-	"tickets"		=> array(),
-	"more-tickets"		=> false
-)));
+require("rewrite.php");

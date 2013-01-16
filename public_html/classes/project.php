@@ -23,6 +23,9 @@ class Project extends CPHPDatabaseRecordClass
 		'string' => array(
 			'Name'			=> "Name",
 			'ShortDescription'	=> "ShortDescription",
+			'Slug'			=> "Slug"
+		),
+		'simplehtml' => array(
 			'LongDescription'	=> "LongDescription"
 		),
 		'numeric' => array(

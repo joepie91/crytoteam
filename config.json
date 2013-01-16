@@ -1,6 +1,7 @@
 {
 	"database": {
 		"driver": 	"mysql",
+		"pdo":		true,
 		"hostname": 	"localhost",
 		"username": 	"root",
 		"password": 	"",
