@@ -2,14 +2,14 @@
 	<section class="download">
 		<h3>Downloads</h3>
 		{%if isempty|stable-version == false}
-			<a href="download/stable" class="download">
+			<a href="{%?project-url}/download/stable" class="download">
 				<b class="stable"></b>
 				<strong>Latest stable</strong>
 				{%?stable-version}
 			</a>
 		{%/if}
 		{%if isempty|experimental-version == false}
-			<a href="download/experimental" class="download">
+			<a href="{%?project-url}/download/experimental" class="download">
 				<b class="experimental"></b>
 				<strong>Latest testing</strong>
 				{%?experimental-version}
@@ -37,7 +37,7 @@
 					<li><strong>{%?ticket[title]}</strong> {%?ticket[date]}</li>
 				{%/foreach}
 				{%if more-tickets == true}
-					<li class="more"><a href="tickets">more...</a></li>
+					<li class="more"><a href="{%?project-url}/tickets">more...</a></li>
 				{%/if}
 			{%else}
 				No tickets.

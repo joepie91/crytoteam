@@ -13,4 +13,5 @@
  
 if(!isset($_APP)) { die("Unauthorized."); }
 
-$sPageContents = "That project does not exist.";
+$sPageContents = NewTemplater::Render("error/project", $locale->strings, array());
+$router->uVariables['page_type'] = "";
