@@ -133,12 +133,17 @@ section
 	padding: 12px 0px;
 }
 
-section h3
+div.section
+{
+	margin: 12px 0px;
+}
+
+section h3, div.section h3
 {
 	margin-top: 6px;
 }
 
-section p
+section p, div.section p
 {
 	font-size: 14px;
 }
@@ -375,4 +380,106 @@ section.tickets tr.status-closed:hover
 section.tickets tr.status-closed.priority-high td.priority
 {
 	color: #656565;
+}
+
+
+/************************************************
+ **               Ticket lookup                **
+ ************************************************/
+ 
+ 
+.section.ticket-original
+{
+	border: 1px solid #373737;
+}
+
+.section.ticket-original h2
+{
+	margin: 0px;
+	padding: 9px 8px;
+	background-color: #373737;
+	color: white;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.section.ticket-original .metadata
+{
+	margin: 11px;
+	font-size: 13px;
+}
+
+.section.ticket-original .metadata .currentdata, .section.ticket-original .metadata .originaldata
+{
+	float: left;
+	width: 50%;
+}
+
+.section.ticket-original .metadata .key
+{
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.section.ticket-original .metadata > div > div
+{
+	margin-top: 4px;
+}
+
+.section.ticket-original .body
+{
+	margin: 11px;
+	padding-left: 4px;
+	font-size: 15px;
+}
+
+.section.ticket-updates > div
+{
+	margin-bottom: 12px;
+}
+
+.section.ticket-updates .message
+{
+	border: 1px solid #373737;
+	padding: 11px;
+}
+
+.section.ticket-updates .message .metadata
+{
+	font-size: 15px;
+}
+
+.section.ticket-updates .message .metadata .author
+{
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.section.ticket-updates .message .metadata .date
+{
+	color: #585858;
+}
+
+.section.ticket-updates .message p
+{
+	margin-bottom: 0px;
+}
+
+.section.ticket-updates .event
+{
+	color: white;
+	background-color: #373737;
+	padding: 12px;
+	font-size: 13px;
+}
+
+.section.ticket-updates .event .author, .section.ticket-updates .event .value
+{
+	font-weight: bold;
+}
+
+.section.ticket-updates .event .date
+{
+	float: right;
+	color: #DADADA;
 }
