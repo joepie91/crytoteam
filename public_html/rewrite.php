@@ -60,7 +60,15 @@ foreach($routes as $category => $items)
 
 /* Route the actual request */
 
-$router->RouteRequest();
+try
+{
+	$router->RouteRequest();
+}
+catch (RouterException $e)
+{
+	http_status_code(404);
+	$sPageContents = NewTemplater::Render("error/404", $locale->strings, array());
+}
 
 /* Render the resulting page */
 
