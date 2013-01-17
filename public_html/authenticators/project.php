@@ -17,7 +17,7 @@ $uSlug = $router->uParameters[1];
 
 try
 {
-	$sProject = Project::CreateFromQuery("SELECT * FROM projects WHERE `Slug` = :Slug", array(":Slug" => $uSlug));
+	$sProject = Project::CreateFromQuery("SELECT * FROM projects WHERE `Slug` = :Slug", array(":Slug" => $uSlug), 0, true);
 	NewTemplater::SetGlobalVariable("project-name", $sProject->sName);
 	NewTemplater::SetGlobalVariable("project-url", "/project/{$sProject->sSlug}");
 	$sRouterAuthenticated = true;

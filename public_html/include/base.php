@@ -5,6 +5,8 @@ require("cphp/base.php");
 
 $_APP = true;
 
+require("constants.php");
+
 function __autoload($class_name) 
 {
 	global $_APP;

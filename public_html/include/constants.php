@@ -16,16 +16,16 @@ if(!isset($_APP)) { die("Unauthorized."); }
 $constants = array(
 	"PRIORITY_LOWEST"	=> 1,
 	"PRIORITY_LOW"		=> 2,
-	"PRIORITY_MEDIUM"	=> 3,
+	"PRIORITY_NORMAL"	=> 3,
 	"PRIORITY_HIGH"		=> 4,
 	"PRIORITY_CRITICAL"	=> 5,
 	
-	"NEW"			=> 1,
+	"NEWTICKET"		=> 1,
 	"OPEN"			=> 2,
 	"CLOSED"		=> 3,
 	"INVALID"		=> 4,
 	"NEEDS_REVIEW"		=> 5,
-	"IN_PROGRESS"		=> 6
+	"IN_PROGRESS"		=> 6,
 	
 	"ATTACHMENT_FILE"	=> 1,
 	"ATTACHMENT_COMMIT"	=> 2,
@@ -41,7 +41,7 @@ $constants = array(
 	"COMMIT"		=> 4,
 	"FORUMPOST"		=> 5,
 	"INVITATION"		=> 6,
-	"DESCRIPTION"		=> 7
+	"DESCRIPTION"		=> 7,
 	
 	"CREATE"		=> 1,
 	"DELETE"		=> 2,

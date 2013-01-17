@@ -38,4 +38,60 @@ class Ticket extends CPHPDatabaseRecordClass
 			'Project'		=> "ProjectId"
 		)
 	);
+	
+	public function __get($name)
+	{
+		switch($name)
+		{
+			case "sStatusName":
+				return $this->GetStatusName();
+				break;
+			case "sPriorityName":
+				return $this->GetPriorityName();
+				break;
+			default:
+				return parent::__get($name);
+				break;
+		}
+	}
+	
+	public function GetStatusName()
+	{
+		switch($this->sStatus)
+		{
+			case NEWTICKET:
+				return "New";
+			case OPEN:
+				return "Open";
+			case CLOSED:
+				return "Closed";
+			case INVALID:
+				return "Invalid";
+			case NEEDS_REVIEW:
+				return "Needs Review";
+			case IN_PROGRESS:
+				return "In Progress";
+			default:
+				return "Unknown";
+		}
+	}
+	
+	public function GetPriorityName()
+	{
+		switch($this->sPriority)
+		{
+			case PRIORITY_LOWEST:
+				return "Lowest";
+			case PRIORITY_LOW:
+				return "Low";
+			case PRIORITY_NORMAL:
+				return "Normal";
+			case PRIORITY_HIGH:
+				return "High";
+			case PRIORITY_CRITICAL:
+				return "Critical";
+			default:
+				return "Unknown";
+		}
+	}
 }
