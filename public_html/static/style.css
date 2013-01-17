@@ -457,6 +457,7 @@ section.tickets tr.status-closed.priority-high td.priority
 
 .section.ticket-updates .message .metadata .date
 {
+	float: right;
 	color: #585858;
 }
 
