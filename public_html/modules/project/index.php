@@ -13,6 +13,8 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
+$sPageTitle = "Overview";
+$sCurrentPage = "overview";
 $sPageContents = Templater::AdvancedParse("project/index", $locale->strings, array(
 	"long-description"	=> $sProject->sLongDescription,
 	"no-downloads"		=> false,

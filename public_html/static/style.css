@@ -12,6 +12,97 @@ body
 	font-family: "Nobile", sans-serif;
 }
 
+table
+{
+	width: 100%;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+table th, table td
+{
+	text-align: left;
+	padding: 7px 7px;
+	border-left: 1px solid #252525;
+	border-right: 1px solid #252525;
+}
+
+table th
+{
+	background-color: black;
+	color: white;
+	font-size: 12px;
+}
+
+table td
+{
+	border: 1px solid #A1A1A1;
+}
+
+table th.empty table td.empty
+{
+	padding: 0px;
+}
+
+table td
+{
+	font-size: 13px;
+}
+
+section.tickets tr.priority-low
+{
+	color: #2B2B2B;
+	background-color: #EDEDED;
+}
+
+section.tickets tr.priority-low:hover
+{
+	background-color: #E3E3E3;
+}
+
+section.tickets tr.priority-normal
+{
+	color: black;
+	background-color: #E5FFFF;
+}
+
+section.tickets tr.priority-normal:hover
+{
+	background-color: #DCF5F5;
+}
+
+section.tickets tr.priority-high
+{
+	background-color: #FFC9C9;
+}
+
+section.tickets tr.priority-high:hover
+{
+	background-color: #F5C1C1;
+}
+
+section.tickets tr.priority-high td.priority
+{
+	color: red;
+	font-weight: bold;
+}
+
+section.tickets tr.status-closed
+{
+	color: gray;
+	background-color: #D0D0D0;
+}
+
+section.tickets tr.status-closed:hover
+{
+	background-color: #C7C7C7;
+}
+
+section.tickets tr.status-closed.priority-high td.priority
+{
+	color: #656565;
+}
+
 .clear
 {
 	clear: both;

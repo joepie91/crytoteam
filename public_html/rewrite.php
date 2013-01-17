@@ -15,6 +15,7 @@ require("include/base.php");
 
 $sPageTitle = "";
 $sPageContents = "";
+$sCurrentPage = "";
 
 /* Define the different routes for the application */
 
@@ -81,7 +82,8 @@ if(empty($router->uVariables['page_type']) || $router->uVariables['page_type'] =
 elseif($router->uVariables['page_type'] == "project")
 {
 	$sContents = NewTemplater::Render("project/layout", $locale->strings, array(
-		"contents"	=> $sPageContents
+		"contents"	=> $sPageContents,
+		"current-page"	=> $sCurrentPage
 	));
 }
 else
