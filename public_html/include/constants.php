@@ -20,11 +20,12 @@ $constants = array(
 	"PRIORITY_HIGH"		=> 4,
 	"PRIORITY_CRITICAL"	=> 5,
 	
-	"OPEN"			=> 1,
-	"CLOSED"		=> 2,
-	"INVALID"		=> 3,
-	"NEEDS_REVIEW"		=> 4,
-	"IN_PROGRESS"		=> 5
+	"NEW"			=> 1,
+	"OPEN"			=> 2,
+	"CLOSED"		=> 3,
+	"INVALID"		=> 4,
+	"NEEDS_REVIEW"		=> 5,
+	"IN_PROGRESS"		=> 6
 	
 	"ATTACHMENT_FILE"	=> 1,
 	"ATTACHMENT_COMMIT"	=> 2,
