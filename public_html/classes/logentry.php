@@ -1,6 +1,6 @@
 <?php
 /*
- * projectname is more free software. It is licensed under the WTFPL, which
+ * Cryto Team is more free software. It is licensed under the WTFPL, which
  * allows you to do pretty much anything with it, without having to
  * ask permission. Commercial use is allowed, and no attribution is
  * required. We do politely request that you share your modifications
