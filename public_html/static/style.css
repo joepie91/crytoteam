@@ -63,22 +63,22 @@ section.tickets tr.priority-low:hover
 section.tickets tr.priority-normal
 {
 	color: black;
-	background-color: #E5FFFF;
+	background-color: #E7F7F7;
 }
 
 section.tickets tr.priority-normal:hover
 {
-	background-color: #DCF5F5;
+	background-color: #DEEEEE;
 }
 
 section.tickets tr.priority-high
 {
-	background-color: #FFC9C9;
+	background-color: #F7D6D6;
 }
 
 section.tickets tr.priority-high:hover
 {
-	background-color: #F5C1C1;
+	background-color: #EECECE;
 }
 
 section.tickets tr.priority-high td.priority
