@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "FontAwesome";
-  src: url('/static/fontawesome-webfont.eot');
-  src: url('/static/fontawesome-webfont.eot?#iefix') format('eot'), url('/static/fontawesome-webfont.woff') format('woff'), url('/static/fontawesome-webfont.ttf') format('truetype'), url('/static/fontawesome-webfont.svg#FontAwesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: "FontAwesome";
+	src: url('/static/fontawesome-webfont.eot');
+	src: url('/static/fontawesome-webfont.eot?#iefix') format('eot'), url('/static/fontawesome-webfont.woff') format('woff'), url('/static/fontawesome-webfont.ttf') format('truetype'), url('/static/fontawesome-webfont.svg#FontAwesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 body
@@ -11,6 +11,179 @@ body
 	background-color: #F3F3F3;
 	font-family: "Nobile", sans-serif;
 }
+
+.clear
+{
+	clear: both;
+}
+
+
+/************************************************
+ **              Clickable rows                **
+ ************************************************/
+
+table tr.clickable
+{
+	cursor: pointer;
+}
+
+table tr.clickable a
+{
+	/* This gets rid of the link styling for fallback hyperlinks in clickable table rows. */
+	color: inherit;
+	text-decoration: none;
+}
+
+
+/************************************************
+ **                Page layout                 **
+ ************************************************/
+
+.wrapper
+{
+	width: 960px;
+	margin: 0px auto;
+}
+
+.header
+{
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-bottom: 3px solid black;
+}
+
+.header h1
+{
+	float: right;
+	font-weight: bold;
+	font-size: 56px;
+	margin: 0px;
+}
+
+.header h2
+{
+	float: left;
+	font-weight: normal;
+	font-size: 56px;
+	margin: 0px;
+}
+
+.footer
+{
+	border-top: 3px solid black;
+	margin-top: 12px;
+	padding-top: 6px;
+	font-size: 12px;
+}
+
+
+/************************************************
+ **                 Page menu                  **
+ ************************************************/
+
+.menu
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #252525;
+}
+
+.menu li
+{
+	list-style: none;
+	margin: 0px;
+}
+
+.menu li:not(.clear)
+{
+	display: block;
+	float: left;
+}
+
+.menu li a
+{
+	display: block;
+	float: left;
+	text-decoration: none;
+	background-color: #252525;
+	color: #CFCFCF;
+	font-size: 14px;
+	padding: 6px 10px;
+}
+
+.menu li a:hover
+{
+	background-color: #191919;
+	color: white;
+}
+
+.menu li.active a
+{
+	background-color: black;
+	color: white;
+}
+
+
+/************************************************
+ **                  Sections                  **
+ ************************************************/
+ 
+section
+{
+	padding: 12px 0px;
+}
+
+section h3
+{
+	margin-top: 6px;
+}
+
+section p
+{
+	font-size: 14px;
+}
+
+p.lead
+{
+	font-weight: bold;
+}
+
+
+/************************************************
+ **                   Asides                   **
+ ************************************************/
+
+aside
+{
+	float: right;
+	margin-left: 24px;
+}
+
+aside section
+{
+	font-size: 14px;
+	padding: 12px;
+	width: 240px;
+	background-color: #141414;
+	margin-bottom: 16px;
+	margin-top: 12px;
+}
+
+aside section, aside section a
+{
+	color: white;
+}
+
+aside section h3
+{
+	margin-top: 1px;
+	margin-bottom: 4px;
+	font-size: 19px;
+}
+
+/************************************************
+ **            Generic table styling           **
+ ************************************************/
 
 table
 {
@@ -48,6 +221,107 @@ table td
 {
 	font-size: 13px;
 }
+
+
+/************************************************
+ **              Overview asides               **
+ ************************************************/
+
+aside section.statistics ul, section.tickets ul
+{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+aside section.tickets, section.tickets a
+{
+	font-size: 12px;
+	text-decoration: none;
+}
+
+aside section.tickets strong
+{
+	font-size: 14px;
+}
+
+aside section.tickets ul li
+{
+	margin-top: -1px;
+	margin-bottom: 0px;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	padding: 6px 0px;
+}
+
+aside section.tickets ul li.more
+{
+	text-align: right;
+	border: none;
+}
+
+aside section.tickets ul li.more a
+{
+	padding: 3px 6px;
+}
+
+aside section.tickets ul li.more a:hover
+{
+	background-color: black;
+}
+
+aside section.download a.download
+{
+	margin-top: 10px;
+	display: block;
+	padding: 10px 13px;
+	text-decoration: none;
+	border-radius: 9px;
+	border: 1px solid white;
+	
+}
+
+aside section.download a.download:hover
+{
+	color: white;
+	background-color: #0C0C0C;
+	border: 1px solid white;
+	
+}
+
+aside section.download a.download strong
+{
+	display: block;
+	font-size: 18px;
+}
+
+aside section.download a.download b:before
+{
+	display: block;
+	float: left;
+	font-size: 40px;
+	font-family: FontAwesome;
+	font-weight: normal;
+	margin-right: 10px;
+	margin-top: 2px;
+	width: 38px;
+	text-align: center;
+}
+
+aside section.download a.download b.stable:before
+{
+	content: "\f019";
+}
+
+aside section.download a.download b.experimental:before
+{
+	content: "\f0c3";
+}
+
+
+/************************************************
+ **                  Tickets                   **
+ ************************************************/
 
 section.tickets tr.priority-low
 {
@@ -101,247 +375,4 @@ section.tickets tr.status-closed:hover
 section.tickets tr.status-closed.priority-high td.priority
 {
 	color: #656565;
-}
-
-.clear
-{
-	clear: both;
-}
-
-.wrapper
-{
-	width: 960px;
-	margin: 0px auto;
-}
-
-.header
-{
-	padding-top: 6px;
-	padding-bottom: 6px;
-	border-bottom: 3px solid black;
-}
-
-.header h1
-{
-	float: right;
-	font-weight: bold;
-	font-size: 56px;
-	margin: 0px;
-}
-
-.header h2
-{
-	float: left;
-	font-weight: normal;
-	font-size: 56px;
-	margin: 0px;
-}
-
-/*.header h2:before
-{
-	font-weight: normal;
-	content: ";";
-	margin: 0px 16px;
-}*/
-
-.menu
-{
-	margin: 0px;
-	padding: 0px;
-	background-color: #252525;
-}
-
-.menu li
-{
-	list-style: none;
-	margin: 0px;
-}
-
-.menu li:not(.clear)
-{
-	display: block;
-	float: left;
-}
-
-.menu li a
-{
-	display: block;
-	float: left;
-	text-decoration: none;
-	background-color: #252525;
-	color: #CFCFCF;
-	font-size: 14px;
-	padding: 6px 10px;
-}
-
-.menu li a:hover
-{
-	background-color: #191919;
-	color: white;
-}
-
-.menu li.active a
-{
-	background-color: black;
-	color: white;
-}
-
-.main
-{
-
-}
-
-.footer
-{
-	border-top: 3px solid black;
-	margin-top: 12px;
-	padding-top: 6px;
-	font-size: 12px;
-}
-
-section
-{
-	padding: 12px 0px;
-}
-
-section h3
-{
-	margin-top: 6px;
-}
-
-section p
-{
-	font-size: 14px;
-}
-
-p.lead
-{
-	font-weight: bold;
-}
-
-aside
-{
-	float: right;
-	margin-left: 24px;
-}
-
-aside section
-{
-	font-size: 14px;
-	padding: 12px;
-	width: 240px;
-	background-color: #141414;
-	margin-bottom: 16px;
-	margin-top: 12px;
-}
-
-aside section, aside section a
-{
-	color: white;
-}
-
-aside section h3
-{
-	margin-top: 1px;
-	margin-bottom: 4px;
-	font-size: 19px;
-}
-
-section.statistics ul, section.tickets ul
-{
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-}
-
-section.statistics
-{
-	/*color: #ECFFBF;*/
-}
-
-section.tickets, section.tickets a
-{
-	/*color: #FFFBD5;*/
-	font-size: 12px;
-	text-decoration: none;
-}
-
-section.tickets strong
-{
-	font-size: 14px;
-}
-
-section.tickets ul li
-{
-	margin-top: -1px;
-	margin-bottom: 0px;
-	/*border-top: 1px solid #FFE8BF;
-	border-bottom: 1px solid #FFE8BF;*/
-	border-top: 1px solid #FFFFFF;
-	border-bottom: 1px solid #FFFFFF;
-	padding: 6px 0px;
-}
-
-section.tickets ul li.more
-{
-	text-align: right;
-	border: none;
-}
-
-section.tickets ul li.more a
-{
-	padding: 3px 6px;
-}
-
-section.tickets ul li.more a:hover
-{
-	background-color: black;
-}
-
-section.download a.download
-{
-	margin-top: 10px;
-	display: block;
-	padding: 10px 13px;
-	text-decoration: none;
-	border-radius: 9px;
-	border: 1px solid white;
-	
-}
-
-section.download a.download:hover
-{
-	color: white;
-	background-color: #0C0C0C;
-	border: 1px solid white;
-	
-}
-
-section.download a.download strong
-{
-	display: block;
-	font-size: 18px;
-}
-
-section.download a.download b:before
-{
-	display: block;
-	float: left;
-	font-size: 40px;
-	font-family: FontAwesome;
-	font-weight: normal;
-	margin-right: 10px;
-	margin-top: 2px;
-	width: 38px;
-	text-align: center;
-}
-
-section.download a.download b.stable:before
-{
-	content: "\f019";
-}
-
-section.download a.download b.experimental:before
-{
-	content: "\f0c3";
 }
