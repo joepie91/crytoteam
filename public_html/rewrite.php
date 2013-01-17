@@ -16,31 +16,55 @@ require("include/base.php");
 $sPageTitle = "";
 $sPageContents = "";
 
-$router = new CPHPRouter();
-$router->allow_slash = true;
-$router->ignore_query = true;
+/* Define the different routes for the application */
 
-$router->routes = array(
-	0 => array(
-		"^/$"						=> "modules/home/index.php",
-		"^/project/([a-zA-Z0-9_-]+)$"			=> array("target" 		=> "modules/project/index.php",
-									 "authenticator" 	=> "authenticators/project.php",
-									 "auth_error"		=> "modules/error/project.php",
-									 "_page_type"		=> "project"),
-		"^/project/([a-zA-Z0-9_-]+)/tickets$"		=> array("target" 		=> "modules/project/tickets/index.php",
-									 "authenticator" 	=> "authenticators/project.php",
-									 "auth_error"		=> "modules/error/project.php",
-									 "_page_type"		=> "project"),
-		"^/project/([a-zA-Z0-9_-]+)/ticket/([0-9]+)$"	=> array("target" 		=> "modules/project/tickets/view.php",
-									 "authenticator" 	=> "authenticators/project.php",
-									 "auth_error"		=> "modules/error/project.php",
-									 "_page_type"		=> "project"),
+$routes = array(
+	"home" => array(
+		"^/$"						=> "modules/home/index.php"
+	),
+	"project" => array(
+		"^/project/([a-zA-Z0-9_-]+)$"			=> "modules/project/index.php",
+		"^/project/([a-zA-Z0-9_-]+)/tickets$"		=> "modules/project/tickets/index.php",
+		"^/project/([a-zA-Z0-9_-]+)/ticket/([0-9]+)$"	=> "modules/project/tickets/view.php"
 	)
 );
 
+/* Define the preset values for the route "categories" */
+
+$presets = array(
+	"home" => array(
+		"_page_type"	=> "home"
+	),
+	"project" => array(
+		"_page_type"	=> "project",
+		"authenticator"	=> "authenticators/project.php",
+		"auth_error"	=> "modules/error/project.php"
+	)
+);
+
+/* Generate a routing table */
+
+$router = new CPHPRouter();
+$router->allow_slash = true;
+$router->ignore_query = true;
+$router->routes = array(0 => array());
+
+foreach($routes as $category => $items)
+{
+	foreach($items as $route => $target)
+	{
+		$router->routes[0][$route] = $presets[$category];
+		$router->routes[0][$route]['target'] = $target;
+	}
+}
+
+/* Route the actual request */
+
 $router->RouteRequest();
 
-if(empty($router->uVariables['page_type']))
+/* Render the resulting page */
+
+if(empty($router->uVariables['page_type']) || $router->uVariables['page_type'] == "home")
 {
 	$sContents = NewTemplater::Render("home/layout", $locale->strings, array(
 		"contents"	=> $sPageContents
