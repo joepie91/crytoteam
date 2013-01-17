@@ -67,8 +67,7 @@ try
 }
 catch (RouterException $e)
 {
-	http_status_code(404);
-	$sPageContents = NewTemplater::Render("error/404", $locale->strings, array());
+	require("modules/error/404.php");
 }
 
 /* Render the resulting page */

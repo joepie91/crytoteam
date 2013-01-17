@@ -27,6 +27,10 @@ $constants = array(
 	"NEEDS_REVIEW"		=> 5,
 	"IN_PROGRESS"		=> 6,
 	
+	"STATUS"		=> 1,
+	"PRIORITY"		=> 2,
+	"OWNER"			=> 3,
+	
 	"ATTACHMENT_FILE"	=> 1,
 	"ATTACHMENT_COMMIT"	=> 2,
 	"ATTACHMENT_TICKET"	=> 3,

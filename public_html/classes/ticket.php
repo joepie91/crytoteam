@@ -25,13 +25,16 @@ class Ticket extends CPHPDatabaseRecordClass
 		),
 		'numeric' => array(
 			'Status'		=> "Status",
-			'CreatorId'		=> "UserId",
+			'CreatorId'		=> "CreatorId",
 			'OwnerId'		=> "OwnerId",
 			'Priority'		=> "Priority",
 			'ProjectId'		=> "ProjectId"
 		),
+		"timestamp" => array(
+			'CreationDate'		=> "CreationDate"
+		),
 		'user' => array(
-			'Creator'		=> "UserId",
+			'Creator'		=> "CreatorId",
 			'Owner'			=> "OwnerId"
 		),
 		'project' => array(

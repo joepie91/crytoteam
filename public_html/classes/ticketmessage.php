@@ -20,7 +20,7 @@ class TicketMessage extends CPHPDatabaseRecordClass
 	public $verify_query = "SELECT * FROM ticket_messages WHERE `Id` = :Id";
 	
 	public $prototype = array(
-		'string' => array(
+		'simplehtml' => array(
 			'Body'			=> "Body"
 		),
 		'boolean' => array(
@@ -34,6 +34,9 @@ class TicketMessage extends CPHPDatabaseRecordClass
 		'timestamp' => array(
 			'Date'			=> "Date"
 		),
+		'boolean' => array(
+			'IsEvent'		=> "Event"
+		),
 		'user' => array(
 			'Author'		=> "UserId"
 		),
@@ -44,4 +47,94 @@ class TicketMessage extends CPHPDatabaseRecordClass
 			'Project'		=> "ProjectId"
 		)
 	);
+	
+	public function __get($name)
+	{
+		switch($name)
+		{
+			case "sComponent":
+				return $this->GetComponentName();
+				break;
+			case "sOperation":
+				return $this->GetOperationName();
+				break;
+			default:
+				return parent::__get($name);
+				break;
+		}
+	}
+	
+	private function UnpackEvent()
+	{
+		if(empty($this->uEventData))
+		{
+			$this->uEventData = json_decode($this->uBody);
+		}
+	}
+	
+	public function GetComponentName()
+	{
+		$this->UnpackEvent();
+		
+		switch($this->uEventData->component)
+		{
+			case STATUS:
+				return "status";
+			case PRIORITY:
+				return "priority";
+			case OWNER:
+				return "owner";
+			default:
+				return "unknown";
+		}
+	}
+	
+	public function GetOperationName()
+	{
+		$this->UnpackEvent();
+		
+		if($this->uEventData->component == OWNER)
+		{
+			$sEventUser = new User($this->uEventData->operation);
+			return $sEventUser->sDisplayName;
+		}
+		elseif($this->uEventData->component == PRIORITY)
+		{
+			switch($this->uEventData->operation)
+			{
+				case PRIORITY_LOWEST:
+					return "Lowest";
+				case PRIORITY_LOW:
+					return "Low";
+				case PRIORITY_NORMAL:
+					return "Normal";
+				case PRIORITY_HIGH:
+					return "High";
+				case PRIORITY_CRITICAL:
+					return "Critical";
+				default:
+					return "Unknown";
+			}
+		}
+		elseif($this->uEventData->component == STATUS)
+		{
+			switch($this->uEventData->operation)
+			{
+				case NEWTICKET:
+					return "New";
+				case OPEN:
+					return "Open";
+				case CLOSED:
+					return "Closed";
+				case INVALID:
+					return "Invalid";
+				case NEEDS_REVIEW:
+					return "Needs Review";
+				case IN_PROGRESS:
+					return "In Progress";
+				default:
+					return "Unknown";
+			}
+		}
+	}
 }
