@@ -3,26 +3,26 @@
 	<div class="metadata">
 		<div class="currentdata">
 			<div class="priority">
-				<span class="key">Priority</span>
+				<span class="key">Priority:</span>
 				<span class="value">{%?priority}</span>
 			</div>
 			<div class="status">
-				<span class="key">Status</span>
+				<span class="key">Status:</span>
 				<span class="value">{%?status}</span>
 			</div>
 			<div class="owner">
-				<span class="key">Owner</span>
+				<span class="key">Owner:</span>
 				<span class="value">{%?owner}</span>
 			</div>
 		</div>
 		<div class="originaldata">
 			<div class="creator">
-				<span class="key">Creator</span>
+				<span class="key">Creator:</span>
 				<span class="value">{%?creator}</span>
 			</div>
 			<div class="date">
-				<span class="key">Date</span>
-				<span class="value">2013/01/17 11:02:27</span>
+				<span class="key">Date:</span>
+				<span class="value">{%?date}</span>
 			</div>
 		</div>
 		<div class="clear"></div>

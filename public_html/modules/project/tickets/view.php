@@ -45,7 +45,7 @@ try
 				"user"		=> $sMessage->sAuthor->sDisplayName,
 				"component"	=> $sMessage->sComponent,
 				"operation"	=> $sMessage->sOperation,
-				"date"		=> local_from_unix($sMessage->sDate, $locale->datetime_short)
+				"date"		=> time_ago($sMessage->sDate, $locale)
 			);
 		}
 		else
@@ -54,7 +54,7 @@ try
 				"event"		=> false,
 				"author"	=> $sMessage->sAuthor->sDisplayName,
 				"body"		=> $sMessage->sBody,
-				"date"		=> local_from_unix($sMessage->sDate, $locale->datetime_short)
+				"date"		=> time_ago($sMessage->sDate, $locale)
 			);
 		}
 	}
@@ -65,7 +65,7 @@ try
 		"status"	=> $sTicket->sStatusName,
 		"owner"		=> $sTicket->sOwner->sDisplayName,
 		"creator"	=> $sTicket->sCreator->sDisplayName,
-		"date"		=> local_from_unix($sTicket->sCreationDate, $locale->datetime_short),
+		"date"		=> local_from_unix($sTicket->sCreationDate, $locale->datetime_long),
 		"body"		=> $sInitialMessage->sBody,
 		"updates"	=> $sUpdates
 	));
