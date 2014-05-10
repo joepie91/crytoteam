@@ -33,5 +33,6 @@
 	"components": [
 		"router",
 		"errorhandler"
-	]
+	],
+	"salt": "abcdef"
 }
