@@ -39,7 +39,7 @@ $presets = array(
 	"project" => array(
 		"_page_type"	=> "project",
 		"authenticator"	=> "authenticators/project.php",
-		"auth_error"	=> "modules/error/project.php"
+		"auth_error"	=> ""
 	)
 );
 

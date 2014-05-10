@@ -24,5 +24,5 @@ try
 }
 catch (NotFoundException $e)
 {
-	$sRouterAuthenticated = false;
+	throw new RouterException("Project does not exist");
 }
